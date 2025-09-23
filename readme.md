@@ -6,14 +6,14 @@ TextFlix is a Python project implementing a complete movie catalog, running in t
 The system allows you to add, remove, and list movies, mark them as watched, search by title or substring, filter by genre, abbreviate synopses, generate relevance ranking, and display top-k most frequent words.
 
 ### Features
-Add and remove movies
-List movies sorted by ID, title, or year
-Search by keywords (AND/OR) or substring in title
-Filter by genre
-Mark movies as watched/unwatched
-Automatic synopsis abbreviation
-Relevance ranking by keywords
-Top-k most frequent words
+- Add and remove movies
+- List movies sorted by ID, title, or year
+- Search by keywords (AND/OR) or substring in title
+- Filter by genre
+- Mark movies as watched/unwatched
+- Automatic synopsis abbreviation
+- Relevance ranking by keywords
+- Top-k most frequent words
 
 ### Goal
 This project was developed as an academic activity to practice programming logic, list and dictionary manipulation, terminal input/output, and full-featured function development in Python.
