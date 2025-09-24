@@ -1,6 +1,6 @@
 # TextFlix
 
-## English en
+## English 🇺🇸
 
 TextFlix is a Python project implementing a complete movie catalog, running in the terminal with an interactive menu.
 The system allows you to add, remove, and list movies, mark them as watched, search by title or substring, filter by genre, abbreviate synopses, generate relevance ranking, and display top-k most frequent words.
