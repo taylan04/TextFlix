@@ -129,9 +129,20 @@ def listar_nao_vistos(filmes):
         None
     """
     filmes_nao_vistos = [filme for filme in filmes if filme["Visto"] == False]
-    print("\n===Filmes não vistos===")
+    filmes_vistos = [filme for filme in filmes if filme["Visto"] == True]
+    
+    print("\n=== Filmes não vistos ===")
+    
     if filmes_nao_vistos:
         for filme in filmes_nao_vistos:
+            print(f"\n{filme}")
+    else:
+        print("\nNenhum filme encontrado!")
+
+    print("\n=== Filmes vistos ===")
+
+    if filmes_vistos:
+        for filme in filmes_vistos:
             print(f"\n{filme}")
     else:
         print("\nNenhum filme encontrado!")

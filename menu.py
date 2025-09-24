@@ -19,7 +19,7 @@ def entrar_opcao():
     print("[5] - Buscar por substring")
     print("[6] - Filtrar por gênero")
     print("[7] - Marcar como visto")
-    print("[8] - Listar não vistos")
+    print("[8] - Listar não vistos e vistos")
     print("[9] - Abreviar sinopse dos filmes")
     print("[10] - Palavras mais frequentes do catálogo")
     print("[11] - Ranking de relevância")
