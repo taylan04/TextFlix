@@ -1,6 +1,15 @@
 from util import * 
 
 def entrar_opcao():
+    """
+    exibe o menu principal e solicita ao usuário que escolha uma opção.
+
+    args:
+        nenhum
+
+    returns:
+        int: número correspondente à opção escolhida pelo usuário.
+    """
     print("\n")
     print("---- Menu ----")
     print("[1] - Cadastrar Filme")

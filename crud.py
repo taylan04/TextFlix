@@ -1,6 +1,15 @@
 from util import *
 
 def cadastrar_filme(filmes):
+    """
+    cadastra um novo filme na lista de filmes.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     print("\n====Cadastrando Filme====\n")
     titulo = solicitar_string_not_null("Título: ")
     ano = solicitar_numero("Ano de lançamento: ")
@@ -20,6 +29,15 @@ def cadastrar_filme(filmes):
     filmes.append(novo_filme)
 
 def excluir_filme(filmes):
+    """
+    remove um filme da lista pelo título.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     titulo = solicitar_string_not_null("\nDigite o título: ")
     for filme in filmes:
         if filme["Título"].lower() == titulo.lower():
@@ -27,6 +45,16 @@ def excluir_filme(filmes):
             print("\nFilme removido com sucesso!")
 
 def listar_filmes(filmes, ordem):
+    """
+    lista os filmes ordenados por id, título ou ano.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+        ordem (str): critério de ordenação ("id", "titulo" ou "ano").
+
+    returns:
+        None
+    """
     if ordem.lower() == "id":
         filmes_por_id = sorted(filmes, key = lambda f: f["ID"])
         for filme in filmes_por_id:
@@ -43,6 +71,15 @@ def listar_filmes(filmes, ordem):
         print("\nOpção inválida!")
 
 def buscar_por_palavras(filmes):
+    """
+    busca filmes pelo título usando palavras separadas por vírgula e lógica AND ou OR.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     palavras = solicitar_string_not_null("\nDigite as palavras separadas por vírgula: ")
     tipo = solicitar_string_not_null("\nAND (todas as palavras devem aparecer) ou OR (qualquer palavra encontrada já conta)?: ")
     filmes_encontrados = []
@@ -66,6 +103,15 @@ def buscar_por_palavras(filmes):
         print("\nNenhum filme encontrado!")
 
 def marcar_visto(filmes):
+    """
+    marca um filme como assistido.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     titulo = solicitar_string_not_null("\nTítulo: ")
     for filme in filmes:
         if filme["Título"].lower() == titulo.lower():
@@ -73,6 +119,15 @@ def marcar_visto(filmes):
             print("\nFilme marcado como assistido!")
 
 def listar_nao_vistos(filmes):
+    """
+    lista os filmes que ainda não foram assistidos.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     filmes_nao_vistos = [filme for filme in filmes if filme["Visto"] == False]
     print("\n===Filmes não vistos===")
     if filmes_nao_vistos:
@@ -82,6 +137,15 @@ def listar_nao_vistos(filmes):
         print("\nNenhum filme encontrado!")
 
 def buscar_por_substring(filmes):
+    """
+    busca filmes cujo título contenha uma substring.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     substring = solicitar_string_not_null("\nDigite uma substring para a busca: ")
     filmes_filtrados = [filme for filme in filmes if substring.lower() in filme["Título"].lower()]
     filmes_ordenados_ano = sorted(filmes_filtrados, key = lambda f: f["Ano"], reverse=True)
@@ -93,6 +157,15 @@ def buscar_por_substring(filmes):
         print("\nNenhum filme encontrado!")
 
 def filtrar_por_genero(filmes):
+    """
+    filtra filmes por gênero e lista ordenados por título.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     genero = solicitar_string_not_null("\nPor qual gênero deseja realizar a busca? ")
     filmes_encontrados = [filme for filme in filmes if genero.lower() in filme["Gêneros"]]
     filmes_ordenados = sorted(filmes_encontrados, key = lambda f: f["Título"])
@@ -102,6 +175,15 @@ def filtrar_por_genero(filmes):
             print(f"\n{filme}")
 
 def abreviar_sinopse(filmes):
+    """
+    gera uma versão abreviada da sinopse dos filmes, encurtando palavras maiores que 6 caracteres.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     sinopses_abreviadas = []
     vogais = "aeiouAEIOU"
     for filme in filmes:
@@ -130,6 +212,15 @@ def abreviar_sinopse(filmes):
         print(f"\n{filme}")
 
 def top_palavras(filmes):
+    """
+    lista as k palavras mais frequentes nos títulos e descrições dos filmes (mínimo 5 caracteres).
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+
+    returns:
+        None
+    """
     k = solicitar_numero("\nDigite a quantidade de palavras frequentes que deseja ver: ")
     top_palavras = {}
     for filme in filmes:
@@ -147,6 +238,17 @@ def top_palavras(filmes):
     print(palavras_k)
 
 def ranking(filmes, palavras_chave, k):
+    """
+    gera um ranking de filmes baseado na frequência das palavras-chave na descrição.
+
+    args:
+        filmes (list): lista de dicionários contendo os filmes cadastrados.
+        palavras_chave (str): palavras separadas por vírgula para calcular o ranking.
+        k (int): quantidade de filmes a serem listados no ranking.
+
+    returns:
+        None
+    """
     filmes_score = []
     palavras = [palavra.strip().lower() for palavra in palavras_chave.split(",") if len(palavra.strip()) >= 5]
     for filme in filmes:
